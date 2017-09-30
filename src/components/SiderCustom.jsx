@@ -1,9 +1,10 @@
 /**
  * Created by hao.cheng on 2017/4/13.
  */
-import React, { Component } from 'react';
-import { Layout, Menu, Icon } from 'antd';
-import { Link } from 'react-router';
+import React, {Component} from 'react';
+import {Icon, Layout, Menu} from 'antd';
+import {Link} from 'react-router';
+
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -112,6 +113,8 @@ class SiderCustom extends Component {
                     >
 
                         <Menu.Item key="/app/basicForm"><Link to={'/app/form/basicForm'}>基础表单</Link></Menu.Item>
+                        <Menu.Item key="/app/select"><Link to={'/app/form/select'}>React Select</Link></Menu.Item>
+
                     </SubMenu>
                     <SubMenu
                         key="/app/chart"

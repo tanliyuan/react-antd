@@ -1,8 +1,8 @@
 /**
  * Created by 叶子 on 2017/8/13.
  */
-import React, { Component } from 'react';
-import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
+import React, {Component} from 'react';
+import {hashHistory, IndexRedirect, Route, Router} from 'react-router';
 import App from '../App';
 import Page from '../components/Page';
 import BasicForm from '../components/forms/BasicForm';
@@ -27,6 +27,7 @@ import BasicAnimations from '../components/animation/BasicAnimations';
 import ExampleAnimations from '../components/animation/ExampleAnimations';
 import AuthBasic from '../components/auth/Basic';
 import RouterEnter from '../components/auth/RouterEnter';
+import ReactSelect from "../components/select/ReactSelect";
 
 const Wysiwyg = (location, cb) => {     // 按需加载富文本配置
     require.ensure([], require => {
@@ -49,6 +50,7 @@ export default class CRouter extends Component {
                     <Route path={'app'} component={App}>
                         <Route path={'form'}>
                             <Route path={'basicForm'} component={BasicForm} />
+                            <Route path={'select'} component={ReactSelect}/>
                         </Route>
                         <Route path={'table'}>
                             <Route path={'basicTable'} component={BasicTable} />
@@ -75,6 +77,7 @@ export default class CRouter extends Component {
                             <Route path={'basicAnimations'} component={BasicAnimations} />
                             <Route path={'exampleAnimations'} component={ExampleAnimations} />
                         </Route>
+
                         <Route path={'dashboard/index'} component={Dashboard} />
                         <Route path="auth">
                             <Route path="basic" component={AuthBasic} />
