@@ -1,17 +1,28 @@
 /**
  * Created by hao.cheng on 2017/4/13.
  */
-import React, { Component } from 'react';
-import { Menu, Icon, Layout, Badge, Popover } from 'antd';
+import React, {Component} from 'react';
+import {Badge, Icon, Layout, Menu, notification, Popover} from 'antd';
 import screenfull from 'screenfull';
-import { gitOauthToken, gitOauthInfo } from '../axios';
-import { queryString } from '../utils';
+import {gitOauthInfo, gitOauthToken} from '../axios';
+import {queryString} from '../utils';
 import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+// import IsOnlineComponent from './layout/IsOnlineComponent';
+import {Offline, Online} from 'react-detect-offline';
+import IsOnline from 'react-is-online';
+
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
+const IsOnlineComponent = IsOnline(({ ...props }) => {
+    props.isOnline && notification.open({
+        message: '网络状态',
+        description: "在线",
+    });
+    return null;
+});
 
 class HeaderCustom extends Component {
     state = {
@@ -122,6 +133,7 @@ class HeaderCustom extends Component {
                         left: -40px;
                     }
                 `}</style>
+                {/*<IsOnlineComponent />*/}
             </Header>
         )
     }

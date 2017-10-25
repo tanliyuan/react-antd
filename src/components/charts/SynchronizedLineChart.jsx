@@ -1,6 +1,6 @@
 import {Area, AreaChart, Brush, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
 import React, {Component} from 'react';
-import {Col, Row} from 'antd';
+import {Alert, Col, Row} from 'antd';
 
 const data = [
     {name: 'Page A', uv: 4000, pv: 9000},
@@ -23,7 +23,7 @@ export default class SynchronizedLineCharts extends Component {
                     <YAxis/>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
-                    <Legend content={()=> <h4 style={{'text-align': 'center'}}>A demo of synchronized AreaCharts</h4>} />
+                    <Legend content={()=> <h4 style={{'textAlign': 'center'}}>A demo of synchronized AreaCharts</h4>} />
                     <Line type='monotone' dataKey='uv' stroke='#8884d8' fill='#8884d8'/>
                 </LineChart>
                     </Col>

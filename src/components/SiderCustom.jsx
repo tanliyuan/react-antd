@@ -90,6 +90,9 @@ class SiderCustom extends Component {
                         <Menu.Item key="/app/ui/drags"><Link to={'/app/ui/drags'}>拖拽</Link></Menu.Item>
                         <Menu.Item key="/app/ui/gallery"><Link to={'/app/ui/gallery'}>画廊</Link></Menu.Item>
                     </SubMenu>
+                    <SubMenu key="/app/layout" title={<span><Icon type="rocket" /><span className="nav-text">布局</span> </span>}>
+                        <Menu.Item key="/app/layout/splitters"><Link to={'/app/layout/splitters'}>分隔条</Link></Menu.Item>
+                    </SubMenu>
                     <SubMenu
                         key="/app/animation"
                         title={<span><Icon type="rocket" /><span className="nav-text">动画</span></span>}

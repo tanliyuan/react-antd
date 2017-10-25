@@ -28,6 +28,7 @@ import ExampleAnimations from '../components/animation/ExampleAnimations';
 import AuthBasic from '../components/auth/Basic';
 import RouterEnter from '../components/auth/RouterEnter';
 import ReactSelect from "../components/select/ReactSelect";
+import SplittersDemo from "../components/layout/SplittersDemo";
 
 const Wysiwyg = (location, cb) => {     // 按需加载富文本配置
     require.ensure([], require => {
@@ -60,6 +61,9 @@ export default class CRouter extends Component {
                         <Route path={'chart'}>
                             <Route path={'echarts'} component={Echarts} />
                             <Route path={'recharts'} component={Recharts} />
+                        </Route>
+                        <Route path={'layout'}>
+                            <Route path={'splitters'} component={SplittersDemo} />
                         </Route>
                         <Route path={'ui'}>
                             <Route path={'icons'} component={Icons} />

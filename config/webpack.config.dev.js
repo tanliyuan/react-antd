@@ -12,6 +12,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -93,7 +94,7 @@ module.exports = {
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
         // 全局相对路径别名，处理相对路径过长和繁琐问题
-        '@': paths.appSrc
+        '@': paths.appSrc,
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -126,6 +127,12 @@ module.exports = {
           },
         ],
         include: paths.appSrc,
+          exclude: paths.appLib,
+      },
+      {
+          test: /offline\.min\.js$/,
+          include: paths.appLib,
+          loader: require.resolve('script-loader'),
       },
       // ** ADDING/UPDATING LOADERS **
       // The "file" loader handles all assets unless explicitly excluded.
@@ -168,6 +175,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
+          exclude: paths.appLib,
         loader: require.resolve('babel-loader'),
         options: {
             plugins: [
@@ -285,6 +293,9 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.ProvidePlugin({
+      Offline: './lib/offline.min',
+    }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
