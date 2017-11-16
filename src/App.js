@@ -70,7 +70,8 @@ class App extends Component {
                             {this.props.children}
                         </Content>
                         <Footer style={{textAlign: 'center'}}>
-                            React-Admin ©2017 Created by 865470087@qq.com
+                            React-Admin ©2017 Created by TanLiYuan
+                            <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold" target="_blank">Coding Pages</a></p>
                         </Footer>
                     </Layout>
                     {
