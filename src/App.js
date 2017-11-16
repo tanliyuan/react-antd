@@ -71,7 +71,7 @@ class App extends Component {
                         </Content>
                         <Footer style={{textAlign: 'center'}}>
                             React-Admin ©2017 Created by TanLiYuan
-                            <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold" target="_blank">Coding Pages</a></p>
+                            <p>Hosted by <a href="https://pages.coding.me" style={{fontWeight: "bold"}} target="_blank">Coding Pages</a></p>
                         </Footer>
                     </Layout>
                     {
